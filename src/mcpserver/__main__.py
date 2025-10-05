@@ -1,7 +1,7 @@
 from mcpserver.fetch_metal_price import mcp
 
 def main():
-    mcp.run(transport="streamable-http")
+    mcp.run(transport="stdio")
 
 if __name__ == "__main__":
     main()
