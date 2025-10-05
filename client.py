@@ -11,10 +11,9 @@ from openai import OpenAI
 import json
 import traceback
 
-load_dotenv('/Users/dhruvin.shah/Documents/Projects/Learning/Learning Repos/MCP/MCP-DEPLOY/.env')
-
-# Get the project directory
-project_dir = Path("/Users/dhruvin.shah/Documents/Projects/Learning/Learning Repos/MCP/MCP-DEPLOY")
+# Get the project directory (current directory)
+project_dir = Path(__file__).parent
+load_dotenv(project_dir / '.env')
 
 server_params = StdioServerParameters(
     command=sys.executable,  
