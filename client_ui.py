@@ -237,7 +237,7 @@ def main():
     # Option selection
     option = st.sidebar.selectbox(
         "Choose an option:",
-        ["🥇 Gold Rate", "🥈 Silver Rate", "⚖️ Gold/Silver Ratio", "🤖 AI Assistant"]
+        ["🥇 Gold Rate", "🥈 Silver Rate", "⚖️ Gold/Silver Ratio"]
     )
     
     # Main content area
@@ -310,24 +310,6 @@ def main():
                     
                     with st.expander("📋 Detailed Silver Data"):
                         st.text(result["silver_text"])
-        
-        elif option == "🤖 AI Assistant":
-            st.subheader("🤖 AI-Powered Price Assistant")
-            st.markdown("Ask questions about precious metals in natural language!")
-            
-            # Chat interface
-            user_query = st.text_input("💬 Ask about gold, silver, or market analysis:", 
-                                     placeholder="e.g., 'What's the current gold price trend?'")
-            
-            if st.button("🚀 Ask AI", type="primary") and user_query:
-                with st.spinner("AI is analyzing your question..."):
-                    result = asyncio.run(run_openai_query(user_query))
-                    
-                if "❌" in result:
-                    st.markdown(f"<div class='error-card'>{result}</div>", unsafe_allow_html=True)
-                else:
-                    st.markdown(f"<div class='success-card'><h4>🤖 AI Response:</h4>{result}</div>", 
-                              unsafe_allow_html=True)
     
     with col2:
         # Information panel
